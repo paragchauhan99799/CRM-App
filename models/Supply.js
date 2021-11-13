@@ -18,7 +18,7 @@ const SupplySchema = new Schema({
         required: true,
         trim: true
     }
-});
+}, { autoCreate: true });
 
 const Supply = mongoose.model("Supply", SupplySchema);
 

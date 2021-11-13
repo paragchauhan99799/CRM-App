@@ -37,7 +37,7 @@ const UserSchema = new Schema({
         default: Date.now,
         required: true
     }
-});
+}, { autoCreate: true });
 
 const User = mongoose.model("User", UserSchema);
 

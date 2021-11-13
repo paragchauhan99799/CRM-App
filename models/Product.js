@@ -27,7 +27,7 @@ const productSchema = new Schema({
         type: Date,
         default: Date.now
     }
-});
+}, { autoCreate: true });
 
 const Product = mongoose.model("Product", productSchema);
 

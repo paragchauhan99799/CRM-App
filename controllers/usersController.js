@@ -43,6 +43,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
+    console.log('req.body', req.body);
     const { errors, isValid } = validateRegisterInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
@@ -77,29 +78,6 @@ module.exports = {
       })
   },
   login: function (req, res) {
-    console.log('-------------LOGIN-----------');
-    const payload = {
-      firstName: 'Parag',
-      lastName: 'Chauhan',
-      userKey: 1,
-      userId: 1,
-      permissions: 7,
-      _id: '618ab3285cb5cca2e1e12dc4'
-    };
-
-    return jwt.sign(
-      payload,
-      keys.secretOrKey,
-      {
-        expiresIn: 31556926 // 1 year in seconds
-      },
-      (err, token) => {
-        res.json({
-          success: true,
-          token: "Bearer " + token
-        });
-      }
-    ); 
     const { errors, isValid } = validateLoginInput(req.body);
     // Check validation
     if (!isValid) {

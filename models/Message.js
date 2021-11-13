@@ -26,7 +26,7 @@ const MessageSchema = new Schema({
         type: Boolean,
         default: false
     }
-});
+}, { autoCreate: true });
 
 // This creates our model from the above schema, using mongoose's model method
 const Message = mongoose.model("Message", MessageSchema);

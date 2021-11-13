@@ -48,7 +48,7 @@ const ClientSchema = new Schema({
             ref: "User"
         }
     ]
-});
+}, { autoCreate: true });
 
 const Client = mongoose.model("Client", ClientSchema);
 

@@ -19,7 +19,7 @@ const NoteSchema = new Schema({
     // an employee has to create a note
     required: true
   }],
-});
+}, { autoCreate: true });
 
 // This creates our model from the above schema, using mongoose's model method
 const Note = mongoose.model("Note", NoteSchema);

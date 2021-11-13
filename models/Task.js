@@ -53,7 +53,7 @@ const TaskSchema = new Schema({
         // The ObjectIds will refer to the ids in the Note model
         ref: "Note"
     }],
-});
+}, { autoCreate: true });
 
 const Task = mongoose.model("Task", TaskSchema);
 

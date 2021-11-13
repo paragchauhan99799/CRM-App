@@ -37,12 +37,21 @@ else {
 }
 
 // mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://know-user:mongo-know-user@cluster0.or9iw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-});
+try {
+    // mongodb+srv://know-user:<password>@cluster0.or9iw.mongodb.net/CRM?retryWrites=true&w=majority
+    // mongodb://127.0.0.1:27017/CRM
+    mongoose.connect("mongodb+srv://crm:crm@cluster0.or9iw.mongodb.net/CRM?retryWrites=true&w=majority", {
+    });
+    const db = mongoose.connection;
+    db.on("error", (error) => {
+        console.log(error);
+    });
+    db.once("open", function () {
+        console.log("Connected successfully");
+    });
+} catch (error) {
+    console.log('---------- ERROR -----------', error);
+}
 
 // Passport config
 app.use(passport.initialize());

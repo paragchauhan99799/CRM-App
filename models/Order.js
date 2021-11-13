@@ -58,7 +58,7 @@ const OrderSchema = new Schema({
         // The ObjectIds will refer to the ids in the Note model
         ref: "Note"
     }]
-});
+}, { autoCreate: true });
 
 const Order = mongoose.model("Order", OrderSchema);
 
