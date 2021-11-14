@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+}
+.flex-1 {
+    flex: 1;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.m-t-12 {
+    margin-top: 48px;
+}
+.form-field-margin{
+    margin-top: 4px;
+    margin-bottom: 12px;
+}

@@ -58,7 +58,6 @@ module.exports = {
           const newUser = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            userKey: req.body.userKey,
             userId: req.body.userId,
             permissions: req.body.permissions,
             password: req.body.password
@@ -89,7 +88,7 @@ module.exports = {
     User.findOne({ userId }).then(user => {
       // Check if user exists
       if (!user) {
-        return res.status(404).json({ userIdnotfound: "User ID not found" });
+        return res.status(404).json({ errorMessage: "User ID not found" });
       }
       // Check password
       bcrypt.compare(password, user.password).then(isMatch => {
@@ -99,7 +98,6 @@ module.exports = {
           const payload = {
             firstName: user.firstName,
             lastName: user.lastName,
-            userKey: user.userKey,
             userId: user.userId,
             permissions: user.permissions,
             _id: user._id

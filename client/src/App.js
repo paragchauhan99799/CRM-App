@@ -9,9 +9,11 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import Dashboard from "./components/Dashboard";
 import Login from "./containers/Login2";
+import Register from "./containers/Register";
 import Routes from "./components/Routes"
 import { Provider } from "react-redux";
 import store from "./store";
+// require('tailwindcss');
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -41,6 +43,7 @@ class App extends Component {
                     <div>
                         <Switch>
                             <Route path="/Login" component={Login} />
+                            <Route path="/register" component={Register} />
                             <Dashboard>
                                 <Routes />
                             </Dashboard>

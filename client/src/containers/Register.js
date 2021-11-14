@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../actions/authActions";
+import { registerUser } from "../actions/authActions";
 import classnames from "classnames";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -16,6 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import '../css/register.css';
 
 function Copyright() {
   return (
@@ -68,6 +69,9 @@ class Login extends Component {
     this.state = {
       userId: "",
       password: "",
+      password2: "",
+      firstName: "",
+      lastName: "",
       errors: {}
     };
   }
@@ -99,9 +103,12 @@ class Login extends Component {
     e.preventDefault();
     const userData = {
       userId: this.state.userId,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName
     };
-    this.props.loginUser(userData);
+    this.props.registerUser(userData);
   };
 
   render() {
@@ -109,23 +116,22 @@ class Login extends Component {
     const { classes } = this.props;
 
     return (
-      <Grid container component="main" className={classes.root}>
-        <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <div className='m-t-12 flex justify-center'>
+        {/* <CssBaseline /> */}
+        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
-          </Typography>
+              Sign Up
+            </Typography>
             <form className={classes.form} noValidate onSubmit={this.onSubmit}>
-              <div>
+              <div className="form-field-margin">
                 <label htmlFor="userId">User ID</label>
                 <TextField
                   variant="outlined"
-                  margin="normal"
                   required
                   fullWidth
                   onChange={this.onChange}
@@ -133,24 +139,54 @@ class Login extends Component {
                   error={errors.userId}
                   id="userId"
                   type="text"
-                  className={classnames("", {
-                    invalid: errors.userId || errors.userIdnotfound
-                  })}
                   autoFocus
                 />
-                <br/>
+                 <br/>
                 <span className="red-text">
                   {errors.userId}
-                  {errors.userIdnotfound}
                 </span>
               </div>
-              <br/>
-              <br/>
-              <div>
+              <div className="form-field-margin">
+                <label htmlFor="password">First Name</label>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  onChange={this.onChange}
+                  value={this.state.firstName}
+                  error={errors.firstName}
+                  id="firstName"
+                  type="firstName"
+                />          
+                 <br/>
+                <span className="red-text">
+                  {errors.firstName}
+                </span>                      
+              </div>
+              <div className="form-field-margin">
+                <label htmlFor="password">Last Name</label>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  onChange={this.onChange}
+                  value={this.state.lastName}
+                  error={errors.lastName}
+                  id="lastName"
+                  type="lastName"
+                  className={classnames("", {
+                    invalid: errors.lastName
+                  })}
+                />   
+                <br/>
+                <span className="red-text">
+                  {errors.lastName}
+                </span>                             
+              </div>
+              <div className="form-field-margin">
                 <label htmlFor="password">Password</label>
                 <TextField
                   variant="outlined"
-                  margin="normal"
                   required
                   fullWidth
                   onChange={this.onChange}
@@ -161,18 +197,32 @@ class Login extends Component {
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
-                  autoComplete="current-password"
-                />                                
+                />      
                 <br/>
                 <span className="red-text">
                   {errors.password}
-                  {errors.passwordincorrect}
-                </span>
+                </span>                          
               </div>
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+              <div className="form-field-margin">
+                <label htmlFor="password2">Confirm Password</label>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  onChange={this.onChange}
+                  value={this.state.password2}
+                  error={errors.password2}
+                  id="password2"
+                  type="password"
+                  className={classnames("", {
+                    invalid: errors.password2
+                  })}
+                />    
+                <br/>
+                <span className="red-text">
+                  {errors.password2}
+                </span>                            
+              </div>
               <Button
                 type="submit"
                 fullWidth
@@ -180,18 +230,13 @@ class Login extends Component {
                 color="primary"
                 className={classes.submit}
               >
-                Sign In
+                Sign Up
             </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
+                  <Link href="/login" variant="body2">
+                    Have an account?
                 </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/register" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
                 </Grid>
               </Grid>
               <Box mt={5}>
@@ -200,13 +245,13 @@ class Login extends Component {
             </form>
           </div>
         </Grid>
-      </Grid>
+      </div>
     );
   }
 }
 
 Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -215,4 +260,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps,{ loginUser }) (withStyles(styles)(Login));
+export default connect(mapStateToProps,{ registerUser }) (withStyles(styles)(Login));

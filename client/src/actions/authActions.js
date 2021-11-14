@@ -11,7 +11,7 @@ import {
 export const registerUser = (userData, history) => dispatch => {
     axios
         .post("/api/users/create", userData)
-        .then(res => history.push("/")) // re-direct to dashboard after creating new user
+        .then(res => window.location.replace("/login")) // re-direct to dashboard after creating new user
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
