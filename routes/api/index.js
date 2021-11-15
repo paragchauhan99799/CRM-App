@@ -4,12 +4,14 @@ const userRoutes = require("./users");
 const taskRoutes = require("./tasks");
 const clientRoutes = require("./clients");
 const orderRoutes = require("./orders");
+const companyRoutes = require("./company");
 const noteRoutes = require("./notes");
 const supplyRoutes = require("./supplies");
 const messageRoutes = require("./messages");
 
 router.use("/products", productRoutes);
 router.use("/users", userRoutes);
+router.use("/company",companyRoutes);
 router.use("/tasks", taskRoutes);
 router.use("/clients", clientRoutes);
 router.use("/orders", orderRoutes);

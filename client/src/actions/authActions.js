@@ -19,6 +19,20 @@ export const registerUser = (userData, history) => dispatch => {
             })
         );
 };
+export const registerCompany = (userData, history) => dispatch => {
+    
+    axios
+        .post("/api/company/create", userData)
+        .then(res => {
+            console.log(res);
+        }) // re-direct to dashboard after creating new user
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
