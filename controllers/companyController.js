@@ -26,9 +26,9 @@ module.exports = {
   },
   create: function(req, res) {
     console.log(req.body);
-    Company
-      .create(req.query)
-      .then(dbModel => res.json(dbModel))
+    const newCompany = new Company({ ...req.body })
+    newCompany.save()
+      .then(user => res.json(user))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {

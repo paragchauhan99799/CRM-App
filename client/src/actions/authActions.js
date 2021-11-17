@@ -24,8 +24,8 @@ export const registerCompany = (userData, history) => dispatch => {
     axios
         .post("/api/company/create", userData)
         .then(res => {
-            console.log(res);
-        }) // re-direct to dashboard after creating new user
+            console.log(res.data);
+        })
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

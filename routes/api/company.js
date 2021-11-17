@@ -4,6 +4,8 @@ const companyController = require("../../controllers/companyController");
 // Matches with "/api/products"
 router.route("/")
   .get(companyController.findAll)
+
+router.route("/create")  
   .post(companyController.create);
 
 // Matches with "/api/products/:id"

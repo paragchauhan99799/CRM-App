@@ -83,11 +83,10 @@ class AddCompany extends Component {
   };
 
    handleClose = () => {
-    this.setState({open:false});
+    this.setState({ open: false});
   };
 
    onChange = (e) => {
-  
     const formData= this.state.formData;
     formData[e.target.id]= e.target.value;
     this.setState({formData:{...formData}});
@@ -102,18 +101,16 @@ class AddCompany extends Component {
         contactName: this.state.formData.contactName,
         contactNumber: this.state.formData.contactNumber,
     };
-    console.log('Add Company', userData);
-    this.props.registerCompany(userData);
-
+    const response = await this.props.registerCompany(userData);
+    console.log('response', response);
+    this.handleClose();
   };
   render(){
     const handleOpen = this.handleOpen;
-    const modalStyle =this.state.modalStyle;
+    const modalStyle = this.state.modalStyle;
     const open = this.state.open;
     const handleClose = this.handleClose;
-    //const classes= this.state.classes;
-    const onChange =this.onChange;
-    const formData=this.state.formData;
+    const onChange = this.onChange;
     const onSubmit= this.onSubmit;
     const { classes } = this.props;
 
