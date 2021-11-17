@@ -82,6 +82,25 @@ export default {
     updateProduct: function(productData) {
       return axios.put("api/tasks", productData);
     },
+
+
+    getCompany: function() {
+      return axios.get("/api/company");
+    },
+    getCompanyByName: function(name) {
+      return axios.get("api/company/companyByName" + name);
+    },
+    deleteCompany: function(id) {
+      return axios.delete("/api/company" + id);
+    },
+    saveCompany: function(companyData) {
+      return axios.post("/api/company", companyData);
+    },
+    updateCompany: function(companyData) {
+      return axios.put("api/tasks", companyData);
+    },
+
+
     getSupplies: function() {
       return axios.get("/api/supplies");
     },

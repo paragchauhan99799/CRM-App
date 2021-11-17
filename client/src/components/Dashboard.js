@@ -29,7 +29,7 @@ import openSocket from 'socket.io-client';
 import { logoutUser } from "../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import AddCompany from './AddCompany';
+
 
 const drawerWidth = 280;
 
@@ -227,7 +227,7 @@ const Dashboard = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            J-CARD Brewing Inc.
+            CRM Tool
           </Typography>
           <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} color="inherit">
             <Badge badgeContent={unread} color='error'>
@@ -281,9 +281,7 @@ const Dashboard = (props) => {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <div style={{"display": 'flex', 'justifyContent': 'end', 'margin': '24px' }}>
-          <AddCompany />
-        </div>
+      
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {props.children}
