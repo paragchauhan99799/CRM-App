@@ -13,6 +13,7 @@ import PublicIcon from '@material-ui/icons/Public';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import NewsFeed from "./containers/NewsFeed";
 import Inventory from "./containers/Inventory";
+import Company from "./containers/Company";
 import InventorySupplies from './containers/InventorySupplies'
 import ClientList from "./containers/ClientList";
 import PurchasingTool from "./containers/PurchasingTool";
@@ -57,6 +58,13 @@ const icons = [
         href: "/inventorysupplies",
         bitmask: 0b1000,
         component: InventorySupplies,
+        icon: <LocalFloristIcon style={style.icon}/>
+    },
+    {
+        title: "Company",
+        href: "/company",
+        bitmask: 0b10,
+        component: Company,
         icon: <LocalFloristIcon style={style.icon}/>
     },
     {

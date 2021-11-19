@@ -20,9 +20,9 @@ import { withStyles } from '@material-ui/core/styles';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Owner'}
       <Link color="inherit" href="https://material-ui.com/">
-        J-CARD Brewery
+        CRM Tool ~Krutik
       </Link>{' '}
       {new Date().getFullYear()}
       {'. Built with '}
