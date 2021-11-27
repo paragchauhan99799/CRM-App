@@ -14,6 +14,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import NewsFeed from "./containers/NewsFeed";
 import Inventory from "./containers/Inventory";
 import Company from "./containers/Company";
+import Contact from "./containers/Contact";
 import InventorySupplies from './containers/InventorySupplies'
 import ClientList from "./containers/ClientList";
 import PurchasingTool from "./containers/PurchasingTool";
@@ -66,6 +67,13 @@ const icons = [
         bitmask: 0b10,
         component: Company,
         icon: <LocalFloristIcon style={style.icon}/>
+    },
+    {
+        title: "Contact",
+        href: "/contact",
+        bitmask: 0b100,
+        component: Contact,
+        icon: <PersonAddIcon style={style.icon}/>
     },
     {
         title: "Client List",

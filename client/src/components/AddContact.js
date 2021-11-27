@@ -7,7 +7,7 @@ import '../css/register.css';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { registerCompany } from "../actions/authActions";
+import { registerContact } from "../actions/authActions";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -60,16 +60,16 @@ const styles = theme => ({
     margin: theme.spacing(3, 0, 2),
   },
 });
-class AddCompany extends Component {
+class AddContact extends Component {
   constructor() {
     super();
     this.state = {
        open:false,
        formData:{
-        companyName: "",
-        companyDomain: "",
-        companyType: "",
-        contactName: "",
+        contactFirstName: "",
+        contactLastName: "",
+        contactAccountName: "",
+        contactEmail: "",
         contactNumber: "",
         errors: {}
        },
@@ -95,13 +95,13 @@ class AddCompany extends Component {
    onSubmit = async (e) => {
     e.preventDefault();
     const userData = {
-        companyName: this.state.formData.companyName,
-        companyDomain: this.state.formData.companyDomain,
-        companyType: this.state.formData.companyType,
-        contactName: this.state.formData.contactName,
+        contactFirstName: this.state.formData.contactFirstName,
+        contactLastName: this.state.formData.contactLastName,
+        contactAccountName: this.state.formData.contactAccountName,
+        contactEmail: this.state.formData.contactEmail,
         contactNumber: this.state.formData.contactNumber,
     };
-    const response = await this.props.registerCompany(userData);
+    const response = await this.props.registerContact(userData);
     console.log('response', response);
     this.handleClose();
   };
@@ -117,7 +117,7 @@ class AddCompany extends Component {
   return (
     <div>
       <Button variant="contained" onClick={handleOpen} color="primary">
-        Add Company
+        Add Contact
     </Button>
       <Modal
         open={open}
@@ -127,76 +127,76 @@ class AddCompany extends Component {
       >
         <div style={modalStyle} className={classes.paper}>
             <Typography component="h1" variant="h5">
-                Add Company
+                Add Contact
             </Typography>
             <form className={classes.form} noValidate onSubmit={(e) => { onSubmit(e) }}>
                 <div className="form-field-margin">
-                    <label htmlFor="companyName">Name</label>
+                    <label htmlFor="contactFirstName">First Name</label>
                     <TextField
                         variant="outlined"
                         required
                         fullWidth
                         onChange={onChange}
-                        value={this.state.formData.companyName}
-                        error={this.state.formData.errors.companyName}
-                        id="companyName"
+                        value={this.state.formData.contactFirstName}
+                        error={this.state.formData.errors.contactFirstName}
+                        id="contactFirstName"
                         type="text"
                         autoFocus
                     />
                         <br/>
                     <span className="red-text">
-                        {this.state.formData.errors.companyName}
+                        {this.state.formData.errors.contactFirstName}
                     </span>
                 </div>
                 <div className="form-field-margin">
-                    <label htmlFor="companyDomain"> Domain</label>
+                    <label htmlFor="contactLastName">Last Name</label>
                     <TextField
                         variant="outlined"
                         required
                         fullWidth
                         onChange={onChange}
-                        value={this.state.formData.companyDomain}
-                        error={this.state.formData.errors.companyDomain}
-                        id="companyDomain"
-                        type="companyDomain"
+                        value={this.state.formData.contactLastName}
+                        error={this.state.formData.errors.contactLastName}
+                        id="contactLastName"
+                        type="contactLastName"
                     />          
                         <br/>
                     <span className="red-text">
-                        {this.state.formData.errors.companyDomain}
+                        {this.state.formData.errors.contactLastName}
                     </span>                      
                 </div>
                 <div className="form-field-margin">
-                    <label htmlFor="companyType">Type</label>
+                    <label htmlFor="contactAccountName">Company Name</label>
                     <TextField
                         variant="outlined"
                         required
                         fullWidth
                         onChange={onChange}
-                        value={this.state.formData.companyType}
-                        error={this.state.formData.errors.companyType}
-                        id="companyType"
-                        type="companyType"
+                        value={this.state.formData.contactAccountName}
+                        error={this.state.formData.errors.contactAccountName}
+                        id="contactAccountName"
+                        type="contactAccountName"
                     />          
                         <br/>
                     <span className="red-text">
-                        {this.state.formData.errors.companyType}
+                        {this.state.formData.errors.contactAccountName}
                     </span>                      
                 </div>
                 <div className="form-field-margin">
-                    <label htmlFor="contactName">Company Name </label>
+                    <label htmlFor="contactEmail">Email</label>
                     <TextField
                         variant="outlined"
                         required
                         fullWidth
                         onChange={onChange}
-                        value={this.state.formData.contactName}
-                        error={this.state.formData.errors.contactName}
-                        id="contactName"
-                        type="contactName"
+                        value={this.state.formData.contactEmail}
+                        error={this.state.formData.errors.contactEmail}
+                        id="contactEmail"
+                        type="contactEmail"
                     />          
                         <br/>
                     <span className="red-text">
-                        {this.state.formData.errors.contactName}
+                        {this.state.formData.errors.contactEmail}
                     </span>                      
                 </div>
                 <div className="form-field-margin">
@@ -224,7 +224,7 @@ class AddCompany extends Component {
                     color="primary"
                     className={classes.submit}
                     >
-                    Add New Company
+                    Add New Contact
                 </Button>
             </form>
         </div>
@@ -233,7 +233,7 @@ class AddCompany extends Component {
   );
 }
 }
-AddCompany.propTypes = {
+AddContact.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
@@ -243,5 +243,5 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps,{ registerCompany })(withStyles(styles)(AddCompany));
+export default connect(mapStateToProps,{ registerContact })(withStyles(styles)(AddContact));
 

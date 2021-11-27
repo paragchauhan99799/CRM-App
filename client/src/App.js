@@ -10,7 +10,6 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import Dashboard from "./components/Dashboard";
 import Login from "./containers/Login2";
 import Register from "./containers/Register";
-import Company from "./containers/Company";
 import Routes from "./components/Routes"
 import { Provider } from "react-redux";
 import store from "./store";

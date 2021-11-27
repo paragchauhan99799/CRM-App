@@ -5,6 +5,7 @@ module.exports = {
     Client: require("./Client"),
     Order: require("./Order"),
     Company: require("./Company"),
+    Contact: require("./Contact"),
     Note: require("./Note"),
     Message: require("./Message"),
     Supply: require("./Supply")

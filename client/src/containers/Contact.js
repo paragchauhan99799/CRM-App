@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import API from "../utilities/api";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import AddCompany from "../components/AddCompany";
+import AddContact from "../components/AddContact";
 
 const styles = (theme) => ({
   root: {
@@ -23,52 +23,52 @@ const styles = (theme) => ({
   },
 });
 
-class Company extends Component {
+class Contact extends Component {
   state = {
-    companyList: [],
+    contactList: [],
   };
 
   componentDidMount() {
-    API.getCompany()
-      .then((res) => this.setState({ companyList: res.data }))
+    API.getContact()
+      .then((res) => this.setState({ contactList: res.data }))
       .catch((err) => console.log(err));
   }
 
   render() {
     const { classes } = this.props;
 
-    if (this.state.companyList.length > 0) {
+    if (this.state.contactList.length > 0) {
       return (
         <div>
           <div>
-            <PageTitle title="Company Details " />
+            <PageTitle title="Contact " />
           </div>
           <div
             style={{ display: "flex", justifyContent: "end", margin: "24px" }}
           >
-            <AddCompany />
+            <AddContact />
           </div>
 
           <Paper className={classes.root}>
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <TableCell> ID</TableCell>
-                  <TableCell> Name</TableCell>
-                  <TableCell>Domain</TableCell>
-                  <TableCell>Type</TableCell>
+                  <TableCell>ID</TableCell>
+                  <TableCell> FirstName</TableCell>
+                  <TableCell>LastName </TableCell>
                   <TableCell>Company Name</TableCell>
-                  <TableCell>Phone Number</TableCell>
+                  <TableCell>Email</TableCell>
+                  <TableCell> Phone Number</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {this.state.companyList.map((row) => (
+                {this.state.contactList.map((row) => (
                   <TableRow key={row._id}>
                     <TableCell>{row._id}</TableCell>
-                    <TableCell>{row.companyName}</TableCell>
-                    <TableCell>{row.companyDomain}</TableCell>
-                    <TableCell>{row.companyType}</TableCell>
-                    <TableCell>{row.contactName}</TableCell>
+                    <TableCell>{row.contactFirstName}</TableCell>
+                    <TableCell>{row.contactLastName}</TableCell>
+                    <TableCell>{row.contactAccountName}</TableCell>
+                    <TableCell>{row.contactEmail}</TableCell>
                     <TableCell>{row.contactNumber}</TableCell>
                   </TableRow>
                 ))}
@@ -81,7 +81,12 @@ class Company extends Component {
       return (
         <div>
           <div>
-            <PageTitle title="Company Details" />
+            <PageTitle title="Contact" />
+          </div>
+          <div
+            style={{ display: "flex", justifyContent: "end", margin: "24px" }}
+          >
+            <AddContact />
           </div>
           <PacmanLoader
             className={"pacman-loader"}
@@ -96,4 +101,4 @@ class Company extends Component {
   }
 }
 
-export default withStyles(styles)(Company);
+export default withStyles(styles)(Contact);
