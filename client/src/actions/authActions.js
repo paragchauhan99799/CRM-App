@@ -47,6 +47,34 @@ export const registerContact = (userData, history) => dispatch => {
             })
         );
 };
+export const registerCall = (userData, history) => dispatch => {
+    
+    axios
+        .post("/api/call/create", userData)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+export const registerMeeting = (userData, history) => dispatch => {
+    
+    axios
+        .post("/api/meeting/create", userData)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
 
 // Login - get user token
 export const loginUser = userData => dispatch => {

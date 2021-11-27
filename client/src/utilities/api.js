@@ -119,6 +119,39 @@ export default {
     return axios.put("api/tasks", contactData);
   },
 
+  getCall: function () {
+    return axios.get("/api/call");
+  },
+  getCallByName: function (name) {
+    return axios.get("api/call/callByName" + name);
+  },
+  deleteCall: function (id) {
+    return axios.delete("/api/call/" + id);
+  },
+  saveCall: function (callData) {
+    return axios.post("/api/call/", callData);
+  },
+  updateCall: function (callData) {
+    return axios.put("api/tasks", callData);
+  },
+
+  getMeeting: function () {
+    return axios.get("/api/meeting");
+  },
+  getMeetingByName: function (name) {
+    return axios.get("api/meeting/meetingByName" + name);
+  },
+  deleteMeeting: function (id) {
+    return axios.delete("/api/meeting/" + id);
+  },
+  saveMeeting: function (meetingData) {
+    return axios.post("/api/meeting/", meetingData);
+  },
+  updateMeeting: function (meetingData) {
+    return axios.put("api/tasks", meetingData);
+  },
+
+
   getSupplies: function () {
     return axios.get("/api/supplies");
   },

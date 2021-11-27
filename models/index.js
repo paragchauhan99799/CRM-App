@@ -6,6 +6,8 @@ module.exports = {
     Order: require("./Order"),
     Company: require("./Company"),
     Contact: require("./Contact"),
+    Call: require("./Call"),
+    //Meeting: require("./Meeting"),
     Note: require("./Note"),
     Message: require("./Message"),
     Supply: require("./Supply")
