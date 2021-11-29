@@ -20,7 +20,7 @@ const CallSchema = new Schema({
         enum: ["SCHEDULED","COMPLETED","CANCELED","OVERDUE"]
     },
     time: {
-        type: Date,
+        type: String,
         required: true
     },
     subject:{

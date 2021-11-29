@@ -17,6 +17,7 @@ import Company from "./containers/Company";
 import Contact from "./containers/Contact";
 import Meeting from "./containers/Meeting";
 import Call from "./containers/Call";
+import Calander from "./containers/Calander";
 import InventorySupplies from './containers/InventorySupplies'
 import ClientList from "./containers/ClientList";
 import PurchasingTool from "./containers/PurchasingTool";
@@ -82,6 +83,13 @@ const icons = [
         href: "/call",
         bitmask: 0b100,
         component: Call,
+        icon: <PersonAddIcon style={style.icon}/>
+    },
+    {
+        title: "Calander",
+        href: "/calander",
+        bitmask: 0b100,
+        component: Calander,
         icon: <PersonAddIcon style={style.icon}/>
     },
     {

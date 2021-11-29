@@ -107,8 +107,10 @@ class AddCall extends Component {
         subject: this.state.formData.subject,
         purpose: this.state.formData.purpose
     };
-    const response = await this.props.registerCall(userData);
-    console.log('response', response);
+    await this.props.registerCall(userData);
+    if(this.props.fetchCall) {
+      this.props.fetchCall();
+    }
     this.handleClose();
   };
   render(){
@@ -205,18 +207,19 @@ class AddCall extends Component {
                         {this.state.formData.errors.status}
                     </span>                      
                 </div>
-                <div className="form-field-margin">
+                <div className="form-field-margin call-date-box">
                     <label htmlFor="time">Time</label>
                     <TextField
-                        variant="outlined"
-                        required
-                        fullWidth
-                        onChange={onChange}
-                        value={this.state.formData.time}
-                        error={this.state.formData.errors.time}
-                        id="time"
-                        type="time"
-                    />          
+                      id="time"
+                      variant="outlined"
+                      type="datetime-local"
+                      onChange={onChange}
+                      defaultValue=""
+                      value={this.state.formData.time}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                     <br/>
                     <span className="red-text">
                         {this.state.formData.errors.time}
@@ -276,7 +279,8 @@ class AddCall extends Component {
 AddCall.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  fetchCall: PropTypes.func
 };
 const mapStateToProps = state => ({
   auth: state.auth,

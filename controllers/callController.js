@@ -1,5 +1,6 @@
 const db = require("../models");
 const Call = db.Call;
+const moment = require('moment')
 
 // Defining methods for the productsController
 module.exports = {
@@ -26,7 +27,7 @@ module.exports = {
   },
   create: function(req, res) {
     console.log(req.body);
-    const newCall = new Call({ ...req.body, time: new Date() })
+    const newCall = new Call({ ...req.body, time: moment(req.body.time).format('DD-MM-YYYY HH:MM') })
     newCall.save()
       .then(user => res.json(user))
       .catch(err => res.status(422).json(err));

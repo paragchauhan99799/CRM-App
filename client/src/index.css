@@ -23,3 +23,7 @@ code {
 .red-text{
   color: red;
 }
+.call-date-box{
+  display: flex;
+  flex-direction: column;
+}
