@@ -8,3 +8,9 @@ a{
       align-items: center;
       height: 200px;
   }
+  .meeting-action-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 05px;
+}

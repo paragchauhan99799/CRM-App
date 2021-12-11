@@ -1,15 +1,15 @@
 import React,{Component} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import '../css/register.css';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Avatar from '@material-ui/core/Avatar';
+//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+//import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { registerCall } from "../actions/authActions";
 import PropTypes from "prop-types";
-import axios from "axios";
+//import axios from "axios";
 import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 
@@ -277,7 +277,7 @@ class AddCall extends Component {
 }
 }
 AddCall.propTypes = {
-  registerUser: PropTypes.func.isRequired,
+  registerCall: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
   fetchCall: PropTypes.func

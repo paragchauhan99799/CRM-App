@@ -3,6 +3,11 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import WidgetsIcon from '@material-ui/icons/Widgets';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
+import CallAddIcon from '@material-ui/icons/Call';
+import CalendarIcon from '@material-ui/icons/CalendarToday';
+import MeetingAddIcon from '@material-ui/icons/MeetingRoom';
+import CompanyAddIcon from '@material-ui/icons/Business';
+
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -69,7 +74,7 @@ const icons = [
         href: "/company",
         bitmask: 0b10,
         component: Company,
-        icon: <LocalFloristIcon style={style.icon}/>
+        icon: <CompanyAddIcon style={style.icon}/>
     },
     {
         title: "Contact",
@@ -83,21 +88,21 @@ const icons = [
         href: "/call",
         bitmask: 0b100,
         component: Call,
-        icon: <PersonAddIcon style={style.icon}/>
+        icon: <CallAddIcon style={style.icon}/>
     },
     {
         title: "Calander",
         href: "/calander",
         bitmask: 0b100,
         component: Calander,
-        icon: <PersonAddIcon style={style.icon}/>
+        icon: <CalendarIcon style={style.icon}/>
     },
     {
         title: "Meeting",
         href: "/meeting",
         bitmask: 0b100,
         component: Meeting,
-        icon: <PersonAddIcon style={style.icon}/>
+        icon: <MeetingAddIcon style={style.icon}/>
     },
     {
         title: "Client List",

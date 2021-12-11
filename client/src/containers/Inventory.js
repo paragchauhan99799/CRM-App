@@ -9,6 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import AddButton from "../components/AddButton";
+import AddProduct from "../components/AddProduct";
+
 import API from "../utilities/api";
 import PacmanLoader from 'react-spinners/PacmanLoader';
 
@@ -60,6 +62,11 @@ class Inventory extends Component {
                     <div>
                         <PageTitle title="Inventory" />
                     </div>
+                    <div
+            style={{ display: "flex", justifyContent: "end", margin: "24px" }}
+          >
+            <AddProduct />
+          </div>
                     <Paper className={classes.root}>
                         <Table className={classes.table}>
                             <TableHead>

@@ -33,6 +33,20 @@ export const registerCompany = (userData, history) => dispatch => {
             })
         );
 };
+export const registerProduct = (userData, history) => dispatch => {
+    
+    axios
+        .post("/api/products/create", userData)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
 export const registerContact = (userData, history) => dispatch => {
     
     axios

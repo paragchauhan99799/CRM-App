@@ -2,22 +2,24 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const MeetingSchema = new Schema({
-    contactFirstName: {
+    title: {
         type: String,
         required: true
     },
-    contactLastName: {
-        type: String
-    },
-    contactAccountName: {
-        type: String
-    },
-    contactEmail: {
+    host: {
         type: String,
         required: true
     },
-    contactNumber: {
-        type: Number,
+    participants: {
+        type: String,
+        required: true
+    },
+    startTime: {
+        type: String,
+        required: true
+    },
+    endTime: {
+        type: String,
         required: true
     },
     created_at: {

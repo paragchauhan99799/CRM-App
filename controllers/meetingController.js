@@ -26,7 +26,7 @@ module.exports = {
   },
   create: function(req, res) {
     console.log(req.body);
-    const newMeeting = new Meeting({ ...req.body })
+    const newMeeting = new Meeting({ ...req.body, time:moment(req.body.time).format('YYYY-MM-DD hh:mm') })
     newMeeting.save()
       .then(user => res.json(user))
       .catch(err => res.status(422).json(err));

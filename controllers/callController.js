@@ -27,7 +27,7 @@ module.exports = {
   },
   create: function(req, res) {
     console.log(req.body);
-    const newCall = new Call({ ...req.body, time: moment(req.body.time).format('DD-MM-YYYY HH:MM') })
+    const newCall = new Call({ ...req.body, time:moment(req.body.time).format('YYYY-MM-DD hh:mm') })
     newCall.save()
       .then(user => res.json(user))
       .catch(err => res.status(422).json(err));
