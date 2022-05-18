@@ -1,4 +1,4 @@
-# J-CARD Brewery Solutions
+
 # React-Built MOCK CRM 
 
 ## Table of contents
@@ -94,16 +94,7 @@ Download the repository
 
 ## Authors
 
-- Anthony Lam
-- Clint Brodar
-- Dane Shrewsbury
-- Jonah Severn
-- Robert Weston
-
-## License
-
-- Open Source
-- Created for the University of Washington Code-Boot Camp 2019: Project #3
+- Krutik Parmar
 
 
 
