@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+#added this functionality
 const CallSchema = new Schema({
     owner: {
         type: Number,
