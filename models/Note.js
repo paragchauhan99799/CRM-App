@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+#added this model files
 const NoteSchema = new Schema({
   // content of the note
   content: String,
